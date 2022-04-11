@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NLP Text Summariser</title>
 </head>
 <body>
     <form action="{{url_for('Summarise')}}" method="post">
         <textarea name="data" cols="30" rows="10" placeholder="Enter data for summarisation!" required="required"></textarea>
+        <input name="maxL"type="range" min="20" max="1000" value="100">
+        <button type="reset">Clear</button>
         <button type="submit">Submit!</button>
     </form>
 

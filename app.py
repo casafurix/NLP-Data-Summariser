@@ -21,8 +21,8 @@ def Summarise():
 
         data = req.form["data"]
 
-        minL = 20
-        maxL = 70
+        minL = maxL // 4
+        maxL = int(req.form["maxL"])
 
         def query(payload):
             response = requests.post(API_URL, headers=headers, json=payload)
@@ -36,8 +36,8 @@ def Summarise():
                     "max_length": maxL,
                 },
             }
-        )
-        return render_template("index.html", result=output)
+        )[0]
+        return render_template("index.html", result=output["summary_text"])
     else:
         return render_template("index.html")
 
